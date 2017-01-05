@@ -18,7 +18,7 @@ module Fluent
     def configure(conf)
       super
       @pos_writer = PosWriter.new(conf["pos_file"])
-      @journal = Systemd::Journal.new(path: path)
+      @journal = Systemd::Journal.new
       @read_from_head = conf["read_from_head"]
       journal.filter(*filters)
       seek
